@@ -1,0 +1,6 @@
+{
+  "name": "CloudGuard – Cloud Misconfiguration Scanner",
+  "description": "An educational cybersecurity tool that analyzes simulated cloud configuration data and detects common cloud security misconfigurations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

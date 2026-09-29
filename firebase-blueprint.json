@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "ScanHistory": {
+      "title": "ScanHistory",
+      "description": "Educational cloud misconfiguration scan results and security score metadata",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "UID of the owner who ran the scan",
+          "maxLength": 128
+        },
+        "scanId": {
+          "type": "string",
+          "description": "Unique identifier for the scan report",
+          "maxLength": 64
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "ISO timestamp when the scan was executed",
+          "maxLength": 64
+        },
+        "configurationName": {
+          "type": "string",
+          "description": "Descriptive name of the evaluated cloud configuration",
+          "maxLength": 128
+        },
+        "securityScore": {
+          "type": "number",
+          "description": "Computed security score from 0 to 100"
+        },
+        "riskLevel": {
+          "type": "string",
+          "description": "Computed risk tier (Low, Moderate, High, Critical)",
+          "maxLength": 32
+        },
+        "totalChecks": {
+          "type": "number",
+          "description": "Total security checks executed"
+        },
+        "passedChecks": {
+          "type": "number",
+          "description": "Total checks passing security baseline"
+        },
+        "failedChecks": {
+          "type": "number",
+          "description": "Total checks failing security baseline"
+        }
+      },
+      "required": [
+        "userId",
+        "scanId",
+        "timestamp",
+        "configurationName",
+        "securityScore"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/scans/{scanId}": {
+      "schema": "ScanHistory",
+      "description": "Per-user educational scan records securely isolated by authentication UID"
+    }
+  }
+}
